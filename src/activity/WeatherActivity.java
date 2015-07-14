@@ -1,11 +1,9 @@
 package activity;
 
 import org.w3c.dom.Text;
-
 import util.HttpCallbackListener;
 import util.HttpUtil;
 import util.Utility;
-import android.R;
 import android.app.Activity;
 import android.app.DownloadManager.Query;
 import android.content.Intent;
@@ -71,7 +69,7 @@ public class WeatherActivity extends Activity implements OnClickListener {
 		case R.id.refresh_weather:{
 			publishText.setText("Í¬²½ÖÐ");
 			SharedPreferences pres = PreferenceManager.getDefaultSharedPreferences(this);
-			String weatherCode = pres.getString(weather_code, "");
+			String weatherCode = pres.getString("weather_code", "");
 			if (!TextUtils.isEmpty(weatherCode)) {
 				queryWeatherInfo(weatherCode);
 			}
@@ -86,7 +84,7 @@ public class WeatherActivity extends Activity implements OnClickListener {
 	private void queryWeatherCode(String countyCode) {
 		String address = "http://www.weather.com.cn/data/list3/city" + 
 	countyCode + ".xml";
-		queryFromSever(address,"countyCode");
+		queryFromServer(address,"countyCode");
 	}
 	
 	private void queryWeatherInfo(String weatherCode) {
