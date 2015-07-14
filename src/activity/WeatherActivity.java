@@ -1,6 +1,9 @@
 package activity;
 
 import org.w3c.dom.Text;
+
+import com.coolweather.app.R;
+
 import util.HttpCallbackListener;
 import util.HttpUtil;
 import util.Utility;
